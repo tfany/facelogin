@@ -4,9 +4,12 @@ import com.huihuitf.facelogin.pojo.User;
 import com.huihuitf.facelogin.service.UserService;
 import com.huihuitf.facelogin.util.CommonResult;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 public class UserController {
@@ -26,5 +29,10 @@ public class UserController {
             return CommonResult.success(null);
         }
         return CommonResult.failed();
+    }
+
+    @GetMapping("getUser")
+    public CommonResult<List<User>> getUser(int pageNum,int pageSize,String groupId){
+        return CommonResult.success(userService.getUser(pageNum,pageSize,groupId));
     }
 }

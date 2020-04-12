@@ -1,10 +1,12 @@
 package com.huihuitf.facelogin.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.huihuitf.facelogin.dao.UserMapper;
 import com.huihuitf.facelogin.pojo.User;
 import com.huihuitf.facelogin.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 
@@ -27,6 +29,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getUser(int pageNum, int pageSize, String groupId) {
-        return null;
+        Example example=new Example(User.class);
+        Example.Criteria criteria= example.createCriteria();
+        criteria.andEqualTo("permissions",groupId);
+        PageHelper.startPage(pageNum,pageSize);
+        return userMapper.selectByExample(example);
     }
 }
