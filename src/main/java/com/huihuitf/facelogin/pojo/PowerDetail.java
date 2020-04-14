@@ -3,8 +3,8 @@ package com.huihuitf.facelogin.pojo;
 import java.util.Date;
 import javax.persistence.*;
 
-@Table(name = "powerDetail")
-public class Powerdetail {
+@Table(name = "power_detail")
+public class PowerDetail {
     /**
      * 主键
      */
@@ -15,7 +15,7 @@ public class Powerdetail {
      * 普通客户id
      */
     @Column(name = "customer_id")
-    private Integer customerId;
+    private String customerId;
 
     /**
      * 记录生成时间
@@ -30,7 +30,7 @@ public class Powerdetail {
     private Date updateTime;
 
     /**
-     * 月用电量
+     * 月用电量w
      */
     private Integer electricity;
 
@@ -73,7 +73,7 @@ public class Powerdetail {
      *
      * @return customer_id - 普通客户id
      */
-    public Integer getCustomerId() {
+    public String getCustomerId() {
         return customerId;
     }
 
@@ -82,8 +82,8 @@ public class Powerdetail {
      *
      * @param customerId 普通客户id
      */
-    public void setCustomerId(Integer customerId) {
-        this.customerId = customerId;
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId == null ? null : customerId.trim();
     }
 
     /**
@@ -123,18 +123,18 @@ public class Powerdetail {
     }
 
     /**
-     * 获取月用电量
+     * 获取月用电量w
      *
-     * @return electricity - 月用电量
+     * @return electricity - 月用电量w
      */
     public Integer getElectricity() {
         return electricity;
     }
 
     /**
-     * 设置月用电量
+     * 设置月用电量w
      *
-     * @param electricity 月用电量
+     * @param electricity 月用电量w
      */
     public void setElectricity(Integer electricity) {
         this.electricity = electricity;

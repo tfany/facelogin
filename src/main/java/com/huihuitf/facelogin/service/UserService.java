@@ -28,4 +28,6 @@ public interface UserService {
      * @return 用户列表
      */
     public List<User> getUser(int pageNum,int pageSize,String groupId);
+
+    User findUserById(String userId);
 }
