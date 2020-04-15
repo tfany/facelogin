@@ -45,6 +45,12 @@ public class User {
     private String faceImg;
 
     /**
+     * 上次登陆时间 做token验证
+     */
+    @Column(name = "last_login_time")
+    private Date lastLoginTime;
+
+    /**
      * 获取客户表id
      *
      * @return id - 客户表id
@@ -168,5 +174,23 @@ public class User {
      */
     public void setFaceImg(String faceImg) {
         this.faceImg = faceImg == null ? null : faceImg.trim();
+    }
+
+    /**
+     * 获取上次登陆时间 做token验证
+     *
+     * @return last_login_time - 上次登陆时间 做token验证
+     */
+    public Date getLastLoginTime() {
+        return lastLoginTime;
+    }
+
+    /**
+     * 设置上次登陆时间 做token验证
+     *
+     * @param lastLoginTime 上次登陆时间 做token验证
+     */
+    public void setLastLoginTime(Date lastLoginTime) {
+        this.lastLoginTime = lastLoginTime;
     }
 }

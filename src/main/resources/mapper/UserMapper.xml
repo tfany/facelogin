@@ -12,5 +12,6 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="permissions" jdbcType="VARCHAR" property="permissions" />
     <result column="face_img" jdbcType="VARCHAR" property="faceImg" />
+    <result column="last_login_time" jdbcType="TIMESTAMP" property="lastLoginTime" />
   </resultMap>
 </mapper>

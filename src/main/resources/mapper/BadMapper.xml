@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huihuitf.facelogin.dao.BadMapper">
+  <resultMap id="BaseResultMap" type="com.huihuitf.facelogin.pojo.Bad">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="customer_id" jdbcType="VARCHAR" property="customerId" />
+    <result column="tell_error_time" jdbcType="TIMESTAMP" property="tellErrorTime" />
+    <result column="bad_type" jdbcType="INTEGER" property="badType" />
+    <result column="customer_talk" jdbcType="VARCHAR" property="customerTalk" />
+    <result column="fixer_id" jdbcType="VARCHAR" property="fixerId" />
+    <result column="fix_result" jdbcType="INTEGER" property="fixResult" />
+    <result column="fix_time" jdbcType="TIMESTAMP" property="fixTime" />
+  </resultMap>
+</mapper>
