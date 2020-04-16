@@ -1,5 +1,6 @@
 package com.huihuitf.facelogin.controller;
 
+import com.huihuitf.facelogin.jwt.UserLoginToken;
 import com.huihuitf.facelogin.pojo.Bad;
 import com.huihuitf.facelogin.service.BadService;
 import com.huihuitf.facelogin.util.CommonResult;
@@ -16,6 +17,7 @@ public class BadController {
     @Autowired
     private BadService badService;
 
+    @UserLoginToken
     @PostMapping("tellNewBad")
     public CommonResult<Object> tellNewBad(@RequestBody Bad bad) {
         if (badService.tellNewBad(bad))
@@ -29,6 +31,7 @@ public class BadController {
      * @param bad 维修结果
      * @return boolean
      */
+    @UserLoginToken
     @PostMapping("detailBad")
     public CommonResult<Object> detailBad(@RequestBody Bad bad) {
         if (badService.detailBad(bad))
@@ -41,6 +44,7 @@ public class BadController {
      * @param customerId 用户id
      * @return list
      */
+    @UserLoginToken
     @GetMapping("queryTellBadRecord")
     public CommonResult<List<Bad>> queryTellBadRecord(String customerId) {
         return CommonResult.success(badService.queryTellBadRecord(customerId));
@@ -51,6 +55,7 @@ public class BadController {
      *
      * @return
      */
+    @UserLoginToken
     @GetMapping("queryFixBadRecord")
     public CommonResult<List<Bad>>  queryFixBadRecord(){
         return CommonResult.success(badService.queryFixBadRecord());
@@ -61,6 +66,7 @@ public class BadController {
      * @param fixResult 维修结构
      * @return list
      */
+    @UserLoginToken
     @GetMapping("queryAllByFixResult")
     public CommonResult<List<Bad>> queryAllByFixResult(Integer fixResult){
         return CommonResult.success(badService.queryAllByFixResult(fixResult));

@@ -13,7 +13,7 @@ public class TokenServiceImpl implements TokenService {
     @Override
     public String getToken(User user) {
         String token="";
-        Date expireDate = new Date(System.currentTimeMillis() + 60 * 1000*60);
+        Date expireDate = new Date(System.currentTimeMillis() + 1000*60*5);
         token= JWT.create()
                 .withSubject(user.getName())
                 .withAudience(user.getId())

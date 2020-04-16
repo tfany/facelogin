@@ -1,5 +1,6 @@
 package com.huihuitf.facelogin.controller;
 
+import com.huihuitf.facelogin.jwt.UserLoginToken;
 import com.huihuitf.facelogin.pojo.PowerDetail;
 import com.huihuitf.facelogin.service.PowerDetailService;
 import com.huihuitf.facelogin.util.CommonResult;
@@ -17,12 +18,14 @@ public class PowerDetailController {
     @Autowired
     private PowerDetailService powerDetailService;
 
+    @UserLoginToken
     @PostMapping("/imitationData")
     public CommonResult<Object> imitationData(String userId, int count) {
         powerDetailService.imitationData(userId, count);
         return CommonResult.success(null);
     }
 
+    @UserLoginToken
     @GetMapping("getCurrentMonth")
     public CommonResult<List<PowerDetail>> getCurrentMonth(String userId, int amount) {
         List<PowerDetail> powerDetailList = powerDetailService.getCurrentPower(userId, amount);
@@ -31,6 +34,7 @@ public class PowerDetailController {
         return CommonResult.failed();
     }
 
+    @UserLoginToken
     @GetMapping("getHistory")
     public CommonResult<List<PowerDetail>> getHistory(String userId,int amount){
         return CommonResult.success(powerDetailService.getHistory(userId,amount));

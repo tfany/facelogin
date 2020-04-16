@@ -31,6 +31,7 @@ public class UserController {
         }
     }
 
+    @UserLoginToken
     @PostMapping("addUser")
     public CommonResult<Object> addUser(@RequestBody User user) {
         if (userService.addUser(user)) {
@@ -39,6 +40,7 @@ public class UserController {
         return CommonResult.failed();
     }
 
+    @UserLoginToken
     @PostMapping("deleteUser")
     public CommonResult<Object> deleteUser(String userId) {
         if (userService.deleteUser(userId)) {
@@ -47,14 +49,15 @@ public class UserController {
         return CommonResult.failed();
     }
 
+    @UserLoginToken
     @GetMapping("getUser")
     public CommonResult<List<User>> getUser(int pageNum, int pageSize, String groupId) {
         return CommonResult.success(userService.getUser(pageNum, pageSize, groupId));
     }
 
     @UserLoginToken
-    @GetMapping("/getMessage")
-    public String getMessage() {
-        return "你已通过验证";
+    @GetMapping("findUserById")
+    public CommonResult<User> findUserById(String userId){
+        return CommonResult.success(userService.findUserById(userId));
     }
 }

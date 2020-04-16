@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -18,6 +19,8 @@ public class UserServiceImpl implements UserService {
     public boolean addUser(User user) {
         if(user.getId()==null)
             return false;
+        user.setCreateTime(new Date());
+        user.setUpdateTime(new Date());
         int i = userMapper.insert(user);
         return i == 1;
     }
